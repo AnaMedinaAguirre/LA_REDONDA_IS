@@ -6,8 +6,10 @@ public class FrmLogin extends javax.swing.JFrame {
     
     public FrmLogin() {
         initComponents();
+        /*
         setLocationRelativeTo(null);
         setTitle("Login - La Redonda");
+        */
     }
 
     
@@ -83,9 +85,10 @@ public class FrmLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
+        /*
         Frm_Menu menu = new Frm_Menu();
         menu.setVisible(true);
-        dispose();
+        dispose();*/
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
     /**

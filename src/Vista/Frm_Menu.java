@@ -1,13 +1,9 @@
 package Vista;
 
-import Principal.Main;
-
-
 public class Frm_Menu extends javax.swing.JFrame {
 
     public Frm_Menu() {
         initComponents();
-        setLocationRelativeTo(null);
     }
 
     
@@ -123,9 +119,7 @@ public class Frm_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_MenuItemNuevoEmpleadoActionPerformed
 
     private void MenuItemGestionarTransaccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemGestionarTransaccionActionPerformed
-        Main.ifgt = new InterFrameGestionarTransaccion();
-        Escritorio.add(Main.ifgt);
-        Main.ifgt.setVisible(true);
+
     }//GEN-LAST:event_MenuItemGestionarTransaccionActionPerformed
 
     /**
@@ -164,13 +158,13 @@ public class Frm_Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane Escritorio;
+    public javax.swing.JDesktopPane Escritorio;
     private javax.swing.JMenuItem MenuItemCerrar;
-    private javax.swing.JMenuItem MenuItemGestionarTransaccion;
-    private javax.swing.JMenuItem MenuItemNuevoEmpleado;
+    public javax.swing.JMenuItem MenuItemGestionarTransaccion;
+    public javax.swing.JMenuItem MenuItemNuevoEmpleado;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
-    private javax.swing.JMenu jMenu2;
+    public javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
