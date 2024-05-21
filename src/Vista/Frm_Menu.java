@@ -14,45 +14,36 @@ public class Frm_Menu extends javax.swing.JFrame {
         Escritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        MenuItemNuevoEmpleado = new javax.swing.JMenuItem();
         MenuItemGestionarTransaccion = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        MenuItemGestionarVentas = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenu9 = new javax.swing.JMenu();
         jMenu10 = new javax.swing.JMenu();
         MenuItemCerrar = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocationByPlatform(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         javax.swing.GroupLayout EscritorioLayout = new javax.swing.GroupLayout(Escritorio);
         Escritorio.setLayout(EscritorioLayout);
         EscritorioLayout.setHorizontalGroup(
             EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1070, Short.MAX_VALUE)
+            .addGap(0, 1380, Short.MAX_VALUE)
         );
         EscritorioLayout.setVerticalGroup(
             EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 630, Short.MAX_VALUE)
         );
 
-        getContentPane().add(Escritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1070, 630));
+        getContentPane().add(Escritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1380, 630));
 
         jMenu1.setBackground(new java.awt.Color(204, 204, 255));
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/TRANSACCIOON.png"))); // NOI18N
         jMenu1.setText("Transacción");
         jMenu1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jMenu1.setPreferredSize(new java.awt.Dimension(210, 50));
-
-        MenuItemNuevoEmpleado.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        MenuItemNuevoEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/newEmployee.png"))); // NOI18N
-        MenuItemNuevoEmpleado.setText("Nueva Transacción");
-        MenuItemNuevoEmpleado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MenuItemNuevoEmpleadoActionPerformed(evt);
-            }
-        });
-        jMenu1.add(MenuItemNuevoEmpleado);
 
         MenuItemGestionarTransaccion.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         MenuItemGestionarTransaccion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/gestion.png"))); // NOI18N
@@ -71,6 +62,12 @@ public class Frm_Menu extends javax.swing.JFrame {
         jMenu2.setText("Inventario");
         jMenu2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jMenu2.setPreferredSize(new java.awt.Dimension(210, 50));
+
+        MenuItemGestionarVentas.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        MenuItemGestionarVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/newIncidencia.png"))); // NOI18N
+        MenuItemGestionarVentas.setText("Gestionar Ventas");
+        jMenu2.add(MenuItemGestionarVentas);
+
         jMenuBar1.add(jMenu2);
 
         jMenu3.setBackground(new java.awt.Color(204, 204, 255));
@@ -113,10 +110,6 @@ public class Frm_Menu extends javax.swing.JFrame {
     private void MenuItemCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemCerrarActionPerformed
         System.exit(0);
     }//GEN-LAST:event_MenuItemCerrarActionPerformed
-
-    private void MenuItemNuevoEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemNuevoEmpleadoActionPerformed
-
-    }//GEN-LAST:event_MenuItemNuevoEmpleadoActionPerformed
 
     private void MenuItemGestionarTransaccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemGestionarTransaccionActionPerformed
 
@@ -161,7 +154,7 @@ public class Frm_Menu extends javax.swing.JFrame {
     public javax.swing.JDesktopPane Escritorio;
     private javax.swing.JMenuItem MenuItemCerrar;
     public javax.swing.JMenuItem MenuItemGestionarTransaccion;
-    public javax.swing.JMenuItem MenuItemNuevoEmpleado;
+    public javax.swing.JMenuItem MenuItemGestionarVentas;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
     public javax.swing.JMenu jMenu2;

@@ -1,9 +1,10 @@
-
 package Formato;
+
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumn;
+
 public class ManejadorTablas {
     
     //Metodo que especifica un ancho de las columnas de tabla    
@@ -26,11 +27,32 @@ public class ManejadorTablas {
        JustificarCelda(tabla,0);
        AnchoColumnas(tabla,1,80);
        JustificarCelda(tabla,1);
-       AnchoColumnas(tabla,2,100);
-       AnchoColumnas(tabla,3,250);  
-       AnchoColumnas(tabla,4,500);  
-       AnchoColumnas(tabla,5,250);  
+       AnchoColumnas(tabla,2,80);
+       AnchoColumnas(tabla,3,80);  
+       AnchoColumnas(tabla,4,80);  
+       AnchoColumnas(tabla,5,100);  
        JustificarCelda(tabla,5);
+       AnchoColumnas(tabla,6,250);  
+       JustificarCelda(tabla,5);
+   }
+   
+   //metodo que da formato al JTable de la tabla Transacciones
+   public static void FormatoTablaVentas(JTable tabla){
+       AnchoColumnas(tabla,0,80);
+       JustificarCelda(tabla,0);
+       AnchoColumnas(tabla,1,80);
+       JustificarCelda(tabla,1);
+       AnchoColumnas(tabla,2,100);
+       AnchoColumnas(tabla,3,150);  
+       AnchoColumnas(tabla,4,100);  
+       AnchoColumnas(tabla,5,100);  
+       JustificarCelda(tabla,5);
+       AnchoColumnas(tabla,6,250);  
+       JustificarCelda(tabla,6);
+       AnchoColumnas(tabla,7,100);  
+       JustificarCelda(tabla,7);
+       AnchoColumnas(tabla,8,100);  
+       JustificarCelda(tabla,8);
    }
    
    
