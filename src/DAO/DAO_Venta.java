@@ -71,4 +71,67 @@ public class DAO_Venta extends ConectarDB{
             Mensajes.M1("ERROR no se puede insertar la venta..." + e);
         }
     }
+    
+    
+    //metodo que recupera un registro de la tabla registrarventas mediante su id
+    public Ventas ConsultarRegistro(int idven) {
+        Ventas ven = null;
+        try {
+            rs = st.executeQuery("select idventas,fecha,producto,cliente,cantidad,detalleVenta,precioUnitario,total,"
+                    + "indicador from registrarventas where indicador='S' and idventas=" + idven + ";");
+            if (rs.next()) {
+                ven = new Ventas();
+                ven.setIdVentas(rs.getInt(1));
+                ven.setFecha(rs.getDate(2));
+                ven.setProducto(rs.getString(3));
+                ven.setCliente(rs.getString(4));
+                ven.setCantidad(rs.getInt(5));
+                ven.setDetalleVenta(rs.getString(6));
+                ven.setPrecioUnitario(rs.getDouble(7));
+                ven.setTotal(rs.getDouble(8));
+                ven.setIndicador(rs.getString(9));
+            }
+            rs.close();
+        } catch (Exception e) {
+            Mensajes.M1("ERROR no se puede consultar el registro ..." + e);
+        }
+        return ven;
+    }
+    
+    
+    //método que actualiza un registro  de la tabla registrarventas por medio de su id
+    public void ActualizarRegistro(Ventas ven) {
+        try {
+            ps = conexion.prepareStatement("update registrarventas set fecha=?,producto=?,cliente=?,cantidad=?,detalleVenta=?,precioUnitario=?,total=? where idventas=?;");
+            java.util.Date fechaUtil = ven.getFecha();
+            java.sql.Date fechaSql = new java.sql.Date(fechaUtil.getTime());
+            ps.setDate(1, fechaSql);
+            ps.setString(2, ven.getProducto());
+            ps.setString(3, ven.getCliente());
+            ps.setInt(4, ven.getCantidad());
+            ps.setString(5, ven.getDetalleVenta());
+            ps.setDouble(6, ven.getPrecioUnitario());
+            ps.setDouble(7, ven.getTotal());
+            ps.setInt(8, ven.getIdVentas());
+            ps.executeUpdate();
+            Mensajes.M1("Registro actualizado correctamente...");
+            ps.close();
+        } catch (Exception ex) {
+            Mensajes.M1("ERROR no se puede actualizar el registro..." + ex);
+        }
+    }
+    
+    
+    //método que elimina (inhabilita) un registro de la tabla registrarventas
+    public void EliminarRegistro(int idven) {
+        try {
+            ps = conexion.prepareStatement("update registrarventas set indicador='N' where idventas=?;");
+            ps.setInt(1, idven);
+            ps.executeUpdate();
+            Mensajes.M1("Registro eliminado de la tabla registrarventas");
+            ps.close();
+        } catch (Exception ex) {
+            Mensajes.M1("ERROR no se puede eliminar el registro.." + ex);
+        }
+    }
 }

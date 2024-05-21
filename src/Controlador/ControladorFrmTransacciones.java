@@ -21,8 +21,8 @@ public class ControladorFrmTransacciones implements ActionListener{
         vista.btnActualizar.addActionListener(this);
         vista.btnConsultar.addActionListener(this);
         ProcesosFrmTransacciones.Presentacion(if1);
-        ActualizarForma();
         ProcesosFrmTransacciones.CargarCombos(if1);
+        ActualizarForma();
     }//fin del constructor
     
     void ActualizarForma() {

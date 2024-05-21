@@ -13,6 +13,7 @@ public class ProcesosFrmVentas {
     public static void Presentacion(InternalFrameGestionarVentas if2) {
         if2.setTitle("Mantenimiento de Ventas");
         if2.txtIDVenta.setEnabled(false);
+        if2.txtTotal.setEnabled(false);
         if2.datecFecha.setCalendar(cal);
         if2.setVisible(true);
     }
@@ -48,11 +49,25 @@ public class ProcesosFrmVentas {
         Ventas ven = new Ventas();
         ven.setFecha(if2.datecFecha.getDate());
         ven.setProducto(if2.cbxProducto.getSelectedItem().toString());
+        
+        //agregado
+        double precioUnitario = Double.parseDouble(if2.txtPrecioUni.getText());
+        int cantidad = Integer.parseInt(if2.spnCantidad.getValue().toString());
+        double total = precioUnitario * cantidad;
+        
+        ven.setPrecioUnitario(precioUnitario);
+        ven.setCliente(if2.txtCliente.getText());
+        ven.setCantidad(cantidad);
+        ven.setDetalleVenta(if2.txaDetalleVenta.getText());
+        ven.setTotal(total);
+        
+        /*
         ven.setPrecioUnitario(Double.parseDouble(if2.txtPrecioUni.getText()));
         ven.setCliente(if2.txtCliente.getText());
         ven.setCantidad(Integer.parseInt(if2.spnCantidad.getValue().toString()));
         ven.setDetalleVenta(if2.txaDetalleVenta.getText());
         ven.setTotal(Double.parseDouble(if2.txtTotal.getText()));
+        */
         return ven;
     }
     
