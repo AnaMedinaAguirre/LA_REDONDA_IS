@@ -128,7 +128,6 @@ public class InternalFrameGestionarVentas extends javax.swing.JInternalFrame {
         jPanel3.add(txtCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 20, 190, 40));
         jPanel3.add(txtIDVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 210, 40));
 
-        cbxProducto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel3.add(cbxProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 210, 40));
 
         txaDetalleVenta.setColumns(20);

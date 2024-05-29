@@ -126,7 +126,6 @@ public class InterFrameGestionarTransaccion extends javax.swing.JInternalFrame {
         jPanel3.add(txtMonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 10, 190, 40));
         jPanel3.add(txtIDTransaccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 210, 40));
 
-        cbxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel3.add(cbxTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 210, 40));
 
         txaDescripcion.setColumns(20);

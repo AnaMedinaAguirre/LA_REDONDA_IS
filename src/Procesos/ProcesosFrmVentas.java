@@ -74,5 +74,9 @@ public class ProcesosFrmVentas {
     public static void CargarCombos(InternalFrameGestionarVentas if2){
         if2.cbxProducto.addItem("Pera");
         if2.cbxProducto.addItem("Kiwi");
+        if2.cbxProducto.addItem("Galleta Oreo");
+        if2.cbxProducto.addItem("Manzana");
+        if2.cbxProducto.addItem("Naranja");
+        if2.cbxProducto.addItem("Platano");
     }
 }

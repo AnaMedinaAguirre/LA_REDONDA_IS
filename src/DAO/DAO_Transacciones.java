@@ -18,7 +18,7 @@ public class DAO_Transacciones extends ConectarDB{
         Transacciones tran = new Transacciones();
         int cantreg = 0;
         try {
-            rs = st.executeQuery("select idtransaccion,fecha,tipo,monto,empleado,descripcion,indicador from Transacciones where indicador='S';");
+            rs = st.executeQuery("CALL SP_DAO_MostrarTransaccion();");
             while (rs.next()) {
                 cantreg++;
                 tran.setIdtransaccion(rs.getInt(1));
@@ -42,7 +42,7 @@ public class DAO_Transacciones extends ConectarDB{
     public void InsertarTransaccion(Transacciones tran) {
         try {
             //preparamos la consulta
-            ps = conexion.prepareStatement("insert into Transacciones(fecha,tipo,monto,empleado,descripcion,indicador) values (?,?,?,?,?,'S');");
+            ps = conexion.prepareStatement("CALL SP_DAO_InsertarTransaccion(?,?,?,?,?,'S');");
             //actualizando los parametros
             // Convertir java.util.Date a java.sql.Date
             java.util.Date fechaUtil = tran.getFecha();
@@ -65,8 +65,7 @@ public class DAO_Transacciones extends ConectarDB{
     public Transacciones ConsultarRegistro(int idtran) {
         Transacciones tran = null;
         try {
-            rs = st.executeQuery("select idtransaccion,fecha,tipo,monto,empleado,descripcion,"
-                    + "indicador from Transacciones where indicador='S' and idtransaccion=" + idtran + ";");
+            rs = st.executeQuery("CALL SP_DAO_ConsultarTransaccion\"+\"(\"+idtran+\")\"+\";");
             if (rs.next()) {
                 tran = new Transacciones();
                 tran.setIdtransaccion(rs.getInt(1));
@@ -88,7 +87,7 @@ public class DAO_Transacciones extends ConectarDB{
     //método que actualiza un registro  de la tabla transaccion por medio de su id
     public void ActualizarRegistro(Transacciones tran) {
         try {
-            ps = conexion.prepareStatement("update Transacciones set fecha=?,tipo=?,monto=?,empleado=?,descripcion=? where idtransaccion=?;");
+            ps = conexion.prepareStatement("CALL SP_DAO_ActualizarTransaccion(?,?,?,?,?,?,'S');");
             java.util.Date fechaUtil = tran.getFecha();
             java.sql.Date fechaSql = new java.sql.Date(fechaUtil.getTime());
             ps.setDate(1, fechaSql);
@@ -109,7 +108,7 @@ public class DAO_Transacciones extends ConectarDB{
     //método que elimina (inhabilita) un registro de la tabla Transacciones
     public void EliminarRegistro(int idtran) {
         try {
-            ps = conexion.prepareStatement("update Transacciones set indicador='N' where idtransaccion=?;");
+            ps = conexion.prepareStatement("CALL SP_DAO_EliminarTransaccion(?);");
             ps.setInt(1, idtran);
             ps.executeUpdate();
             Mensajes.M1("Registro eliminado de la tabla Transacciones");

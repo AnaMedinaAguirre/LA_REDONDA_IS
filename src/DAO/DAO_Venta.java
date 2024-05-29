@@ -19,7 +19,7 @@ public class DAO_Venta extends ConectarDB{
         Ventas ven = new Ventas();
         int cantreg = 0;
         try {
-            rs = st.executeQuery("select idventas,fecha,producto,cliente,cantidad,detalleVenta,precioUnitario,total,indicador from registrarventas where indicador='S';");
+            rs = st.executeQuery("CALL SP_DAO_MostrarVenta();");
             while (rs.next()) {
                 cantreg++;
                 ven.setIdVentas(rs.getInt(1));
@@ -52,7 +52,7 @@ public class DAO_Venta extends ConectarDB{
     public void InsertarVentas(Ventas ven) {
         try {
             //preparamos la consulta
-            ps = conexion.prepareStatement("insert into registrarventas(fecha,producto,cliente,cantidad,detalleVenta,precioUnitario,total,indicador) values (?,?,?,?,?,?,?,'S');");
+            ps = conexion.prepareStatement("CALL SP_DAO_RegistrarVenta(?,?,?,?,?,?,?,'S');");
             //actualizando los parametros
             // Convertir java.util.Date a java.sql.Date
             java.util.Date fechaUtil = ven.getFecha();
@@ -77,8 +77,7 @@ public class DAO_Venta extends ConectarDB{
     public Ventas ConsultarRegistro(int idven) {
         Ventas ven = null;
         try {
-            rs = st.executeQuery("select idventas,fecha,producto,cliente,cantidad,detalleVenta,precioUnitario,total,"
-                    + "indicador from registrarventas where indicador='S' and idventas=" + idven + ";");
+            rs = st.executeQuery("CALL SP_DAO_ConsultarVenta\"+\"(\"+idven+\")\"+\";");
             if (rs.next()) {
                 ven = new Ventas();
                 ven.setIdVentas(rs.getInt(1));
@@ -102,7 +101,7 @@ public class DAO_Venta extends ConectarDB{
     //método que actualiza un registro  de la tabla registrarventas por medio de su id
     public void ActualizarRegistro(Ventas ven) {
         try {
-            ps = conexion.prepareStatement("update registrarventas set fecha=?,producto=?,cliente=?,cantidad=?,detalleVenta=?,precioUnitario=?,total=? where idventas=?;");
+            ps = conexion.prepareStatement("CALL SP_DAO_EliminarVenta(?)");
             java.util.Date fechaUtil = ven.getFecha();
             java.sql.Date fechaSql = new java.sql.Date(fechaUtil.getTime());
             ps.setDate(1, fechaSql);
