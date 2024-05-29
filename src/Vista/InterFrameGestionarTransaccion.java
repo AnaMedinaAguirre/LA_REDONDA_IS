@@ -1,5 +1,10 @@
 package Vista;
 
+import DAO.GenerarPDF_Transacciones;
+import java.io.FileNotFoundException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class InterFrameGestionarTransaccion extends javax.swing.JInternalFrame {
     
     public InterFrameGestionarTransaccion() {
@@ -36,6 +41,7 @@ public class InterFrameGestionarTransaccion extends javax.swing.JInternalFrame {
         btnRegistrar = new javax.swing.JButton();
         btnConsultar = new javax.swing.JButton();
         jlblCantidadregistros = new javax.swing.JLabel();
+        btnGenerarPDF = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -72,12 +78,12 @@ public class InterFrameGestionarTransaccion extends javax.swing.JInternalFrame {
         btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/delete.png"))); // NOI18N
         btnEliminar.setText("ELIMINAR");
-        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 160, 50));
+        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 160, 50));
 
         btnActualizar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/update.png"))); // NOI18N
         btnActualizar.setText("ACTUALIZAR");
-        jPanel1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 160, 50));
+        jPanel1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 160, 50));
 
         jPanel3.setBackground(new java.awt.Color(0, 133, 133));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -139,7 +145,7 @@ public class InterFrameGestionarTransaccion extends javax.swing.JInternalFrame {
                 btnRegistrarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 160, 50));
+        jPanel1.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 160, 50));
 
         btnConsultar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnConsultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/follow-up.png"))); // NOI18N
@@ -149,11 +155,21 @@ public class InterFrameGestionarTransaccion extends javax.swing.JInternalFrame {
                 btnConsultarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 160, 50));
+        jPanel1.add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 160, 50));
 
         jlblCantidadregistros.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jlblCantidadregistros.setText("Cantidad de Registros :");
         jPanel1.add(jlblCantidadregistros, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 560, -1, -1));
+
+        btnGenerarPDF.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnGenerarPDF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/pdf.png"))); // NOI18N
+        btnGenerarPDF.setText("EXPORTAR");
+        btnGenerarPDF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerarPDFActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnGenerarPDF, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 160, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -181,11 +197,21 @@ public class InterFrameGestionarTransaccion extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEmpleadoActionPerformed
 
+    private void btnGenerarPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarPDFActionPerformed
+        GenerarPDF_Transacciones reporte = new GenerarPDF_Transacciones();
+        try {
+            reporte.GenerarPDFIncidencias();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(InterFrameGestionarTransaccion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnGenerarPDFActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnActualizar;
     public javax.swing.JButton btnConsultar;
     public javax.swing.JButton btnEliminar;
+    public javax.swing.JButton btnGenerarPDF;
     public javax.swing.JButton btnRegistrar;
     public javax.swing.JComboBox<String> cbxTipo;
     public com.toedter.calendar.JDateChooser datecFechaTransaccion;
