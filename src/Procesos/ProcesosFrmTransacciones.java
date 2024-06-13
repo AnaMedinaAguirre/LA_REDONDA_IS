@@ -37,7 +37,6 @@ public class ProcesosFrmTransacciones {
         if1.datecFechaTransaccion.setCalendar(cal);
         if1.cbxTipo.setSelectedIndex(0);
         if1.txtMonto.setText("");
-        if1.txtEmpleado.setText("");
         if1.txaDescripcion.setText("");
         if1.datecFechaTransaccion.requestFocus();
     }
@@ -48,7 +47,6 @@ public class ProcesosFrmTransacciones {
         tran.setFecha(if1.datecFechaTransaccion.getDate());
         tran.setTipo(if1.cbxTipo.getSelectedItem().toString());
         tran.setMonto(Double.parseDouble(if1.txtMonto.getText()));
-        tran.setEmpleado(if1.txtEmpleado.getText());
         tran.setDescripcion(if1.txaDescripcion.getText());
         return tran;
     }

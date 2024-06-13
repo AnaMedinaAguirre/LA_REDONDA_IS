@@ -5,6 +5,7 @@ import Modelo.Ventas;
 import Vista.InternalFrameGestionarVentas;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import DAO.*;
 
 public class ProcesosFrmVentas {
     
@@ -12,6 +13,9 @@ public class ProcesosFrmVentas {
     
     public static void Presentacion(InternalFrameGestionarVentas if2) {
         if2.setTitle("Mantenimiento de Ventas");
+        ActualizarCombo ac = new ActualizarCombo();
+        ac.CargarDatos(if2.cbxProducto,ac.consultaprod);
+        ac.CargarDatos(if2.cbxCliente, ac.consultacli);
         if2.txtIDVenta.setEnabled(false);
         if2.txtTotal.setEnabled(false);
         if2.datecFecha.setCalendar(cal);
@@ -37,7 +41,7 @@ public class ProcesosFrmVentas {
         if2.datecFecha.setCalendar(cal);
         if2.cbxProducto.setSelectedIndex(0);
         if2.txtPrecioUni.setText("");
-        if2.txtCliente.setText("");
+        if2.cbxCliente.setSelectedIndex(0);
         if2.spnCantidad.setValue(0);
         if2.txaDetalleVenta.setText("");
         if2.txtTotal.setText("");
@@ -48,35 +52,17 @@ public class ProcesosFrmVentas {
     public static Ventas LeerDatos(InternalFrameGestionarVentas if2) {
         Ventas ven = new Ventas();
         ven.setFecha(if2.datecFecha.getDate());
-        ven.setProducto(if2.cbxProducto.getSelectedItem().toString());
-        
+        AdministrarClaves ac = new AdministrarClaves();
+        ven.setIdproductos(ac.RecuperarID(ac.consultaprod, if2.cbxProducto.getSelectedItem().toString()));
+        ven.setIdproductos(ac.RecuperarID(ac.consultacli, if2.cbxCliente.getSelectedItem().toString()));
         //agregado
         double precioUnitario = Double.parseDouble(if2.txtPrecioUni.getText());
         int cantidad = Integer.parseInt(if2.spnCantidad.getValue().toString());
         double total = precioUnitario * cantidad;
-        
         ven.setPrecioUnitario(precioUnitario);
-        ven.setCliente(if2.txtCliente.getText());
         ven.setCantidad(cantidad);
         ven.setDetalleVenta(if2.txaDetalleVenta.getText());
         ven.setTotal(total);
-        
-        /*
-        ven.setPrecioUnitario(Double.parseDouble(if2.txtPrecioUni.getText()));
-        ven.setCliente(if2.txtCliente.getText());
-        ven.setCantidad(Integer.parseInt(if2.spnCantidad.getValue().toString()));
-        ven.setDetalleVenta(if2.txaDetalleVenta.getText());
-        ven.setTotal(Double.parseDouble(if2.txtTotal.getText()));
-        */
         return ven;
-    }
-    
-    public static void CargarCombos(InternalFrameGestionarVentas if2){
-        if2.cbxProducto.addItem("Pera");
-        if2.cbxProducto.addItem("Kiwi");
-        if2.cbxProducto.addItem("Galleta Oreo");
-        if2.cbxProducto.addItem("Manzana");
-        if2.cbxProducto.addItem("Naranja");
-        if2.cbxProducto.addItem("Platano");
     }
 }

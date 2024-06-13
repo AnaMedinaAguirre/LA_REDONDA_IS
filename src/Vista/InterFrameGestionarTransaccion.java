@@ -25,9 +25,7 @@ public class InterFrameGestionarTransaccion extends javax.swing.JInternalFrame {
         btnActualizar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        txtEmpleado = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         datecFechaTransaccion = new com.toedter.calendar.JDateChooser();
@@ -90,51 +88,40 @@ public class InterFrameGestionarTransaccion extends javax.swing.JInternalFrame {
 
         jLabel3.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jLabel3.setText("MONTO:");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, -1, -1));
-
-        txtEmpleado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEmpleadoActionPerformed(evt);
-            }
-        });
-        jPanel3.add(txtEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 70, 190, 40));
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 40, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jLabel6.setText("DESCRIPCION:");
-        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, -1, -1));
-
-        jLabel8.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jLabel8.setText("EMPLEADO:");
-        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, -1, -1));
+        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jLabel9.setText("TIPO:");
-        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jLabel2.setText("ID:");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
-        jPanel3.add(datecFechaTransaccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 210, 40));
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
+        jPanel3.add(datecFechaTransaccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 190, 40));
 
         jLabel10.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jLabel10.setText("REGISTRO:");
-        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
+        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jLabel11.setText("FECHA DE");
-        jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
-        jPanel3.add(txtMonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 10, 190, 40));
-        jPanel3.add(txtIDTransaccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 210, 40));
+        jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
+        jPanel3.add(txtMonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 30, 210, 40));
+        jPanel3.add(txtIDTransaccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 190, 40));
 
-        jPanel3.add(cbxTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 210, 40));
+        jPanel3.add(cbxTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 190, 40));
 
         txaDescripcion.setColumns(20);
         txaDescripcion.setRows(5);
         jScrollPane1.setViewportView(txaDescripcion);
 
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 130, 190, 100));
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 100, 210, 100));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 670, 250));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 670, 240));
 
         btnRegistrar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/register.png"))); // NOI18N
@@ -192,10 +179,6 @@ public class InterFrameGestionarTransaccion extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnConsultarActionPerformed
 
-    private void txtEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmpleadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEmpleadoActionPerformed
-
     private void btnGenerarPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarPDFActionPerformed
         GenerarPDF_Transacciones reporte = new GenerarPDF_Transacciones();
         try {
@@ -220,7 +203,6 @@ public class InterFrameGestionarTransaccion extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -230,7 +212,6 @@ public class InterFrameGestionarTransaccion extends javax.swing.JInternalFrame {
     public javax.swing.JLabel jlblCantidadregistros;
     public javax.swing.JTable tblTransaccion;
     public javax.swing.JTextArea txaDescripcion;
-    public javax.swing.JTextField txtEmpleado;
     public javax.swing.JTextField txtIDTransaccion;
     public javax.swing.JTextField txtMonto;
     // End of variables declaration//GEN-END:variables

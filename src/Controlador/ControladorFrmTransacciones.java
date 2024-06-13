@@ -51,7 +51,6 @@ public class ControladorFrmTransacciones implements ActionListener{
                 vista.datecFechaTransaccion.setDate(tran.getFecha());
                 vista.cbxTipo.setSelectedItem(tran.getTipo());
                 vista.txtMonto.setText(Double.toString(tran.getMonto()));
-                vista.txtEmpleado.setText(tran.getEmpleado());
                 vista.txaDescripcion.setText(tran.getDescripcion());
                 ProcesosFrmTransacciones.Estado2(vista);
             }

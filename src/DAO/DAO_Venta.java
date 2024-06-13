@@ -13,19 +13,19 @@ public class DAO_Venta extends ConectarDB{
     
     // Método que muestra los datos de la tabla registrarventas en un JTable
     public void MostrarVentas(JTable tabla, JLabel etiqueta) {
-        String[] titulos = {"Nro", "ID venta", "Fecha", "Producto", "Cliente", "Cantidad", "Detalle Venta", "Precio Unit.", "Total"};
+        String[] titulos = {"Nro", "ID venta", "Producto", "Cliente", "Fecha", "Cantidad", "Detalle Venta", "Precio Unit.", "Total"};
         DefaultTableModel modelo = new DefaultTableModel(null, titulos);
         tabla.setModel(modelo);
         Ventas ven = new Ventas();
         int cantreg = 0;
         try {
-            rs = st.executeQuery("CALL SP_DAO_MostrarVenta();");
+            rs = st.executeQuery("select idventas,idproductos,idcliente,fecha,cantidad,detalleVenta,precioUnitario,total,indicador from registrarventas where indicador='S';");
             while (rs.next()) {
                 cantreg++;
                 ven.setIdVentas(rs.getInt(1));
-                ven.setFecha(rs.getDate(2));
-                ven.setProducto(rs.getString(3));
-                ven.setCliente(rs.getString(4));
+                ven.setIdproductos(rs.getInt(2));
+                ven.setIdcliente(rs.getInt(3));
+                ven.setFecha(rs.getDate(4));
                 ven.setCantidad(rs.getInt(5));
                 ven.setDetalleVenta(rs.getString(6));
                 ven.setPrecioUnitario(rs.getDouble(7));
@@ -52,14 +52,14 @@ public class DAO_Venta extends ConectarDB{
     public void InsertarVentas(Ventas ven) {
         try {
             //preparamos la consulta
-            ps = conexion.prepareStatement("CALL SP_DAO_RegistrarVenta(?,?,?,?,?,?,?,'S');");
+            ps = conexion.prepareStatement("insert into registrarventas(idproductos,idcliente,fecha,cantidad,detalleVenta,precioUnitario,total,indicador) values (?,?,?,?,?,?,?,'S');");
             //actualizando los parametros
+            ps.setInt(1, ven.getIdproductos());
+            ps.setInt(2, ven.getIdcliente());
             // Convertir java.util.Date a java.sql.Date
             java.util.Date fechaUtil = ven.getFecha();
             java.sql.Date fechaSql = new java.sql.Date(fechaUtil.getTime());
-            ps.setDate(1, fechaSql);
-            ps.setString(2, ven.getProducto());
-            ps.setString(3, ven.getCliente());
+            ps.setDate(3, fechaSql);
             ps.setInt(4, ven.getCantidad());
             ps.setString(5, ven.getDetalleVenta());
             ps.setDouble(6, ven.getPrecioUnitario());
@@ -77,13 +77,14 @@ public class DAO_Venta extends ConectarDB{
     public Ventas ConsultarRegistro(int idven) {
         Ventas ven = null;
         try {
-            rs = st.executeQuery("CALL SP_DAO_ConsultarVenta\"+\"(\"+idven+\")\"+\";");
+            rs = st.executeQuery("select idventas,idproductos,idcliente,fecha,cantidad,detalleVenta,precioUnitario,total,"
+                    + "indicador from registrarventas where indicador='S' and idventas=" + idven + ";");
             if (rs.next()) {
                 ven = new Ventas();
                 ven.setIdVentas(rs.getInt(1));
-                ven.setFecha(rs.getDate(2));
-                ven.setProducto(rs.getString(3));
-                ven.setCliente(rs.getString(4));
+                ven.setIdproductos(rs.getInt(2));
+                ven.setIdcliente(rs.getInt(3));
+                ven.setFecha(rs.getDate(4));
                 ven.setCantidad(rs.getInt(5));
                 ven.setDetalleVenta(rs.getString(6));
                 ven.setPrecioUnitario(rs.getDouble(7));
@@ -101,12 +102,12 @@ public class DAO_Venta extends ConectarDB{
     //método que actualiza un registro  de la tabla registrarventas por medio de su id
     public void ActualizarRegistro(Ventas ven) {
         try {
-            ps = conexion.prepareStatement("CALL SP_DAO_EliminarVenta(?)");
+            ps = conexion.prepareStatement("update registrarventas set idproductos=?,idcliente=?,fecha=?,cantidad=?,detalleVenta=?,precioUnitario=?,total=? where idventas=?;");
+            ps.setInt(1, ven.getIdproductos());
+            ps.setInt(2, ven.getIdcliente());
             java.util.Date fechaUtil = ven.getFecha();
             java.sql.Date fechaSql = new java.sql.Date(fechaUtil.getTime());
-            ps.setDate(1, fechaSql);
-            ps.setString(2, ven.getProducto());
-            ps.setString(3, ven.getCliente());
+            ps.setDate(3, fechaSql);
             ps.setInt(4, ven.getCantidad());
             ps.setString(5, ven.getDetalleVenta());
             ps.setDouble(6, ven.getPrecioUnitario());

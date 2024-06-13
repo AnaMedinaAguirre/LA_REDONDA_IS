@@ -21,8 +21,8 @@ public class ManejadorTablas {
        t.getColumnModel().getColumn(numcolumna).setCellRenderer(modelocentrar);       
    }
    
-   //metodo que da formato al JTable de la tabla Transacciones
-   public static void FormatoTablaTransacciones(JTable tabla){
+   //metodo que da formato al JTable de la tabla Productos
+   public static void FormatoTablaProductos(JTable tabla){
        AnchoColumnas(tabla,0,80);
        JustificarCelda(tabla,0);
        AnchoColumnas(tabla,1,80);
@@ -33,6 +33,34 @@ public class ManejadorTablas {
        AnchoColumnas(tabla,5,100);  
        JustificarCelda(tabla,5);
        AnchoColumnas(tabla,6,250);  
+       JustificarCelda(tabla,6);
+   }
+   
+   
+   //metodo que da formato al JTable de la tabla Transacciones
+   public static void FormatoTablaEmpleados(JTable tabla){
+       AnchoColumnas(tabla,0,80);
+       JustificarCelda(tabla,0);
+       AnchoColumnas(tabla,1,80);
+       JustificarCelda(tabla,1);
+       AnchoColumnas(tabla,2,80);
+       AnchoColumnas(tabla,3,80);  
+       AnchoColumnas(tabla,4,80);  
+       AnchoColumnas(tabla,5,100);  
+       JustificarCelda(tabla,5);
+   }
+   
+   
+   //metodo que da formato al JTable de la tabla Transacciones
+   public static void FormatoTablaTransacciones(JTable tabla){
+       AnchoColumnas(tabla,0,80);
+       JustificarCelda(tabla,0);
+       AnchoColumnas(tabla,1,80);
+       JustificarCelda(tabla,1);
+       AnchoColumnas(tabla,2,80);
+       AnchoColumnas(tabla,3,80);  
+       AnchoColumnas(tabla,4,80);  
+       AnchoColumnas(tabla,5,100);  
        JustificarCelda(tabla,5);
    }
    

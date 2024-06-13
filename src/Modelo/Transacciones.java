@@ -8,7 +8,6 @@ public class Transacciones {
     private Date fecha;
     private String tipo;
     private double monto;
-    private String empleado;
     private String descripcion;
     private String indicador;
     
@@ -26,17 +25,14 @@ public class Transacciones {
     public double getMonto() {return monto;}
     public void setMonto(double monto) {this.monto = monto;}
 
-    public String getEmpleado() {return empleado;}
-    public void setEmpleado(String empleado) {this.empleado = empleado;}
-
     public String getDescripcion() {return descripcion;}
     public void setDescripcion(String descripcion) {this.descripcion = descripcion;}
 
     public String getIndicador() {return indicador;}
     public void setIndicador(String indicador) {this.indicador = indicador;}
     
-    public Object[] RegistroTransaccion(int numeracion){
-        Object[] fila = {numeracion, idtransaccion, fecha, tipo, monto, empleado, descripcion};
+    public Object[] RegistroTransaccion(int numeracion){ 
+        Object[] fila = {numeracion, idtransaccion, fecha, tipo, monto, descripcion};
         return fila;
     }
     

@@ -21,7 +21,6 @@ public class ControladorFrmVentas implements ActionListener{
         vista.btnActualizar.addActionListener(this);
         vista.btnConsultar.addActionListener(this);
         ProcesosFrmVentas.Presentacion(if2);
-        ProcesosFrmVentas.CargarCombos(if2);
         ActualizarForma();
     }
     
@@ -49,9 +48,9 @@ public class ControladorFrmVentas implements ActionListener{
             } else {
                 vista.txtIDVenta.setText(Integer.toString(ven.getIdVentas()));
                 vista.datecFecha.setDate(ven.getFecha());
-                vista.cbxProducto.setSelectedItem(ven.getProducto());
+                vista.cbxProducto.setSelectedItem(ven.getIdproductos());
                 vista.txtPrecioUni.setText(Double.toString(ven.getPrecioUnitario()));
-                vista.txtCliente.setText(ven.getCliente());
+                vista.cbxCliente.setSelectedItem(ven.getIdcliente());
                 vista.spnCantidad.setValue(ven.getCantidad());
                 vista.txaDetalleVenta.setText(ven.getDetalleVenta());
                 vista.txtTotal.setText(Double.toString(ven.getTotal()));

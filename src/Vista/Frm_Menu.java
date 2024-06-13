@@ -13,12 +13,16 @@ public class Frm_Menu extends javax.swing.JFrame {
 
         Escritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu7 = new javax.swing.JMenu();
+        MenuItemGestionarProveedores = new javax.swing.JMenuItem();
+        jMenu8 = new javax.swing.JMenu();
+        MenuItemGestionarClientes = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
+        MenuItemGestionarProductos = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         MenuItemGestionarTransaccion = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         MenuItemGestionarVentas = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu9 = new javax.swing.JMenu();
         jMenu10 = new javax.swing.JMenu();
         MenuItemCerrar = new javax.swing.JMenuItem();
 
@@ -38,6 +42,60 @@ public class Frm_Menu extends javax.swing.JFrame {
         );
 
         getContentPane().add(Escritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1380, 630));
+
+        jMenu7.setBackground(new java.awt.Color(204, 204, 255));
+        jMenu7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/employee.png"))); // NOI18N
+        jMenu7.setText("Porveedores");
+        jMenu7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jMenu7.setPreferredSize(new java.awt.Dimension(210, 50));
+
+        MenuItemGestionarProveedores.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        MenuItemGestionarProveedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/personal.png"))); // NOI18N
+        MenuItemGestionarProveedores.setText("Gestionar Proveedores");
+        MenuItemGestionarProveedores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuItemGestionarProveedoresActionPerformed(evt);
+            }
+        });
+        jMenu7.add(MenuItemGestionarProveedores);
+
+        jMenuBar1.add(jMenu7);
+
+        jMenu8.setBackground(new java.awt.Color(204, 204, 255));
+        jMenu8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/employee.png"))); // NOI18N
+        jMenu8.setText("Clientes");
+        jMenu8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jMenu8.setPreferredSize(new java.awt.Dimension(210, 50));
+
+        MenuItemGestionarClientes.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        MenuItemGestionarClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/personal.png"))); // NOI18N
+        MenuItemGestionarClientes.setText("Gestionar Clientes");
+        MenuItemGestionarClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuItemGestionarClientesActionPerformed(evt);
+            }
+        });
+        jMenu8.add(MenuItemGestionarClientes);
+
+        jMenuBar1.add(jMenu8);
+
+        jMenu5.setBackground(new java.awt.Color(204, 204, 255));
+        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/register.png"))); // NOI18N
+        jMenu5.setText("Productos");
+        jMenu5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jMenu5.setPreferredSize(new java.awt.Dimension(210, 50));
+
+        MenuItemGestionarProductos.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        MenuItemGestionarProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/gestionTipoIncid.png"))); // NOI18N
+        MenuItemGestionarProductos.setText("Gestionar Productos");
+        MenuItemGestionarProductos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuItemGestionarProductosActionPerformed(evt);
+            }
+        });
+        jMenu5.add(MenuItemGestionarProductos);
+
+        jMenuBar1.add(jMenu5);
 
         jMenu1.setBackground(new java.awt.Color(204, 204, 255));
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/TRANSACCIOON.png"))); // NOI18N
@@ -70,20 +128,6 @@ public class Frm_Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setBackground(new java.awt.Color(204, 204, 255));
-        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/pdf.png"))); // NOI18N
-        jMenu3.setText("Reporte");
-        jMenu3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jMenu3.setPreferredSize(new java.awt.Dimension(210, 50));
-        jMenuBar1.add(jMenu3);
-
-        jMenu9.setBackground(new java.awt.Color(204, 204, 255));
-        jMenu9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/tipoIncidencia.png"))); // NOI18N
-        jMenu9.setText("Gestión");
-        jMenu9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jMenu9.setPreferredSize(new java.awt.Dimension(210, 50));
-        jMenuBar1.add(jMenu9);
-
         jMenu10.setBackground(new java.awt.Color(204, 204, 255));
         jMenu10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/logout.png"))); // NOI18N
         jMenu10.setText("Cerrar Sesión");
@@ -114,6 +158,18 @@ public class Frm_Menu extends javax.swing.JFrame {
     private void MenuItemGestionarTransaccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemGestionarTransaccionActionPerformed
 
     }//GEN-LAST:event_MenuItemGestionarTransaccionActionPerformed
+
+    private void MenuItemGestionarProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemGestionarProductosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MenuItemGestionarProductosActionPerformed
+
+    private void MenuItemGestionarProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemGestionarProveedoresActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MenuItemGestionarProveedoresActionPerformed
+
+    private void MenuItemGestionarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemGestionarClientesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MenuItemGestionarClientesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -153,13 +209,17 @@ public class Frm_Menu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JDesktopPane Escritorio;
     private javax.swing.JMenuItem MenuItemCerrar;
+    public javax.swing.JMenuItem MenuItemGestionarClientes;
+    public javax.swing.JMenuItem MenuItemGestionarProductos;
+    public javax.swing.JMenuItem MenuItemGestionarProveedores;
     public javax.swing.JMenuItem MenuItemGestionarTransaccion;
     public javax.swing.JMenuItem MenuItemGestionarVentas;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
     public javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu9;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 }
