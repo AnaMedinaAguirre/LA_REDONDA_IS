@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
 
 public class GenerarPDF_Transacciones extends ConectarDB {
 
-    public void GenerarPDFIncidencias() throws FileNotFoundException {
+    public void GenerarPDFTransacciones() throws FileNotFoundException {
         Document documento = new Document();
         try {
             String ruta = System.getProperty("user.home");
@@ -36,17 +36,16 @@ public class GenerarPDF_Transacciones extends ConectarDB {
             //agregamos los datos
             documento.add(parrafo);
 
-            PdfPTable tabla = new PdfPTable(6);
+            PdfPTable tabla = new PdfPTable(5);
             tabla.addCell("ID transaccion");
             tabla.addCell("Fecha");
             tabla.addCell("Tipo");
             tabla.addCell("Monto");
-            tabla.addCell("Empleado");
             tabla.addCell("Descripcion");
 
             try {
                 ps = conexion.prepareStatement(
-                        "select idtransaccion,fecha,tipo,monto,empleado,descripcion,indicador from Transacciones where indicador='S';");
+                        "select idtransaccion,fecha,tipo,monto,descripcion,indicador from Transacciones where indicador='S';");
 
                 rs = ps.executeQuery();
 
@@ -57,7 +56,6 @@ public class GenerarPDF_Transacciones extends ConectarDB {
                         tabla.addCell(rs.getString(3));
                         tabla.addCell(rs.getString(4));
                         tabla.addCell(rs.getString(5));
-                        tabla.addCell(rs.getString(6));
                     } while (rs.next());
                     documento.add(tabla);
                 }

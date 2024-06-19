@@ -182,7 +182,7 @@ public class InterFrameGestionarTransaccion extends javax.swing.JInternalFrame {
     private void btnGenerarPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarPDFActionPerformed
         GenerarPDF_Transacciones reporte = new GenerarPDF_Transacciones();
         try {
-            reporte.GenerarPDFIncidencias();
+            reporte.GenerarPDFTransacciones();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(InterFrameGestionarTransaccion.class.getName()).log(Level.SEVERE, null, ex);
         }

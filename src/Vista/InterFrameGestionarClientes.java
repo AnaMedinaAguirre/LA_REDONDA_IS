@@ -1,6 +1,6 @@
 package Vista;
 
-import DAO.GenerarPDF_Empleados;
+import DAO.GenerarPDF_Clientes;
 import java.io.FileNotFoundException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -194,9 +194,9 @@ public class InterFrameGestionarClientes extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnConsultarActionPerformed
 
     private void btnGenerarPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarPDFActionPerformed
-        GenerarPDF_Empleados reporte = new GenerarPDF_Empleados();
+        GenerarPDF_Clientes reporte = new GenerarPDF_Clientes();
         try {
-            reporte.GenerarPDFIncidencias();
+            reporte.GenerarPDFClientes();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(InterFrameGestionarClientes.class.getName()).log(Level.SEVERE, null, ex);
         }

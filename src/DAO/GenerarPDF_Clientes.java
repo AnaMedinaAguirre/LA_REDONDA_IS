@@ -17,19 +17,19 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import javax.swing.JOptionPane;
 
-public class GenerarPDF_Empleados extends ConectarDB {
+public class GenerarPDF_Clientes extends ConectarDB {
 
-    public void GenerarPDFIncidencias() throws FileNotFoundException {
+    public void GenerarPDFClientes() throws FileNotFoundException {
         Document documento = new Document();
         try {
             String ruta = System.getProperty("user.home");
-            PdfWriter.getInstance(documento, new FileOutputStream(ruta + "/Desktop/Reporte_Transacciones.pdf"));
+            PdfWriter.getInstance(documento, new FileOutputStream(ruta + "/Desktop/Reporte_Clientes.pdf"));
 
             //formato de texto
             Paragraph parrafo = new Paragraph();
             parrafo.setAlignment(Paragraph.ALIGN_CENTER);
             parrafo.setFont(FontFactory.getFont("Tahoma", 18, Font.BOLD, BaseColor.DARK_GRAY));
-            parrafo.add("Reporte de Transacciones \n\n");
+            parrafo.add("Reporte de Clientes \n\n");
 
             documento.open();
 
@@ -37,16 +37,16 @@ public class GenerarPDF_Empleados extends ConectarDB {
             documento.add(parrafo);
 
             PdfPTable tabla = new PdfPTable(6);
-            tabla.addCell("ID transaccion");
-            tabla.addCell("Fecha");
-            tabla.addCell("Tipo");
-            tabla.addCell("Monto");
-            tabla.addCell("Empleado");
-            tabla.addCell("Descripcion");
+            tabla.addCell("ID Cliente");
+            tabla.addCell("Nombres");
+            tabla.addCell("Género");
+            tabla.addCell("Teléfono");
+            tabla.addCell("Correo");
+            tabla.addCell("Dirección");
 
             try {
                 ps = conexion.prepareStatement(
-                        "select idtransaccion,fecha,tipo,monto,empleado,descripcion,indicador from Transacciones where indicador='S';");
+                        "select idcliente, nombresCli, genero, telefono, correo, direccion, indicador from clientes where indicador='S';");
 
                 rs = ps.executeQuery();
 
@@ -65,13 +65,13 @@ public class GenerarPDF_Empleados extends ConectarDB {
             } catch (SQLException e) {
                 System.out.println("ERROR en: " + e);
             } catch (DocumentException ex) {
-                java.util.logging.Logger.getLogger(GenerarPDF_Empleados.class.getName()).log(Level.SEVERE, null, ex);
+                java.util.logging.Logger.getLogger(GenerarPDF_Clientes.class.getName()).log(Level.SEVERE, null, ex);
             }
             documento.close();
 
-            JOptionPane.showMessageDialog(null, "Reporte de Transacciones creado");
+            JOptionPane.showMessageDialog(null, "Reporte de Clientes creado");
         } catch (DocumentException ex) {
-            java.util.logging.Logger.getLogger(GenerarPDF_Empleados.class.getName()).log(Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GenerarPDF_Clientes.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

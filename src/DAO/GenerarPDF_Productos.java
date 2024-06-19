@@ -19,34 +19,35 @@ import javax.swing.JOptionPane;
 
 public class GenerarPDF_Productos extends ConectarDB {
 
-    public void GenerarPDFIncidencias() throws FileNotFoundException {
+    public void GenerarPDFProductos() throws FileNotFoundException {
         Document documento = new Document();
         try {
             String ruta = System.getProperty("user.home");
-            PdfWriter.getInstance(documento, new FileOutputStream(ruta + "/Desktop/Reporte_Transacciones.pdf"));
+            PdfWriter.getInstance(documento, new FileOutputStream(ruta + "/Desktop/Reporte_Productos.pdf"));
 
             //formato de texto
             Paragraph parrafo = new Paragraph();
             parrafo.setAlignment(Paragraph.ALIGN_CENTER);
             parrafo.setFont(FontFactory.getFont("Tahoma", 18, Font.BOLD, BaseColor.DARK_GRAY));
-            parrafo.add("Reporte de Transacciones \n\n");
+            parrafo.add("Reporte de Productos \n\n");
 
             documento.open();
 
             //agregamos los datos
             documento.add(parrafo);
 
-            PdfPTable tabla = new PdfPTable(6);
-            tabla.addCell("ID transaccion");
-            tabla.addCell("Fecha");
-            tabla.addCell("Tipo");
-            tabla.addCell("Monto");
-            tabla.addCell("Empleado");
-            tabla.addCell("Descripcion");
-
+            PdfPTable tabla = new PdfPTable(7);
+            tabla.addCell("ID Productos");
+            tabla.addCell("Nombre");
+            tabla.addCell("Proveedor");
+            tabla.addCell("Descripción");
+            tabla.addCell("Fecha ven.");
+            tabla.addCell("Precio");
+            tabla.addCell("Stock");
+            
             try {
                 ps = conexion.prepareStatement(
-                        "select idtransaccion,fecha,tipo,monto,empleado,descripcion,indicador from Transacciones where indicador='S';");
+                        "select idproductos,nombre,idproveedor, descripcion, fechavencimiento, precio, stock, indicador from productos where indicador='S';");
 
                 rs = ps.executeQuery();
 
@@ -58,6 +59,7 @@ public class GenerarPDF_Productos extends ConectarDB {
                         tabla.addCell(rs.getString(4));
                         tabla.addCell(rs.getString(5));
                         tabla.addCell(rs.getString(6));
+                        tabla.addCell(rs.getString(7));
                     } while (rs.next());
                     documento.add(tabla);
                 }
@@ -69,7 +71,7 @@ public class GenerarPDF_Productos extends ConectarDB {
             }
             documento.close();
 
-            JOptionPane.showMessageDialog(null, "Reporte de Transacciones creado");
+            JOptionPane.showMessageDialog(null, "Reporte de Productos creado");
         } catch (DocumentException ex) {
             java.util.logging.Logger.getLogger(GenerarPDF_Productos.class.getName()).log(Level.SEVERE, null, ex);
         }

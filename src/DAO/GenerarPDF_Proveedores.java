@@ -17,38 +17,37 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import javax.swing.JOptionPane;
 
-public class GenerarPDF_Ventas extends ConectarDB {
+public class GenerarPDF_Proveedores extends ConectarDB {
 
-    public void GenerarPDFVentas() throws FileNotFoundException {
+    public void GenerarPDFProveedores() throws FileNotFoundException {
         Document documento = new Document();
         try {
             String ruta = System.getProperty("user.home");
-            PdfWriter.getInstance(documento, new FileOutputStream(ruta + "/Desktop/Reporte_Ventas.pdf"));
+            PdfWriter.getInstance(documento, new FileOutputStream(ruta + "/Desktop/Reporte_Proveedores.pdf"));
 
             //formato de texto
             Paragraph parrafo = new Paragraph();
             parrafo.setAlignment(Paragraph.ALIGN_CENTER);
             parrafo.setFont(FontFactory.getFont("Tahoma", 18, Font.BOLD, BaseColor.DARK_GRAY));
-            parrafo.add("Reporte de Ventas \n\n");
+            parrafo.add("Reporte de Proveedores \n\n");
 
             documento.open();
 
             //agregamos los datos
             documento.add(parrafo);
 
-            PdfPTable tabla = new PdfPTable(8);
-            tabla.addCell("ID Venta");
-            tabla.addCell("Producto");
-            tabla.addCell("Cliente");
-            tabla.addCell("Fecha");
-            tabla.addCell("Cantidad");
-            tabla.addCell("Detalle Venta");
-            tabla.addCell("Precio Unit.");
-            tabla.addCell("Precio Total");
+            PdfPTable tabla = new PdfPTable(7);
+            tabla.addCell("ID Proveedor");
+            tabla.addCell("Nombre Compañía");
+            tabla.addCell("Nombre Contacto");
+            tabla.addCell("Cargo contacto");
+            tabla.addCell("Dirección");
+            tabla.addCell("Teléfono");
+            tabla.addCell("Pág. Web");
 
             try {
                 ps = conexion.prepareStatement(
-                        "select idventas, idproductos, idcliente, fecha, cantidad, detalleVenta, precioUnitario, total, indicador from registrarventas where indicador='S';");
+                        "select idproveedor, nombrecompania, nombrecontacto, cargocontacto, direccion, telefono, paginaweb, indicador from proveedores where indicador='S';");
 
                 rs = ps.executeQuery();
 
@@ -61,7 +60,6 @@ public class GenerarPDF_Ventas extends ConectarDB {
                         tabla.addCell(rs.getString(5));
                         tabla.addCell(rs.getString(6));
                         tabla.addCell(rs.getString(7));
-                        tabla.addCell(rs.getString(8));
                     } while (rs.next());
                     documento.add(tabla);
                 }
@@ -69,13 +67,13 @@ public class GenerarPDF_Ventas extends ConectarDB {
             } catch (SQLException e) {
                 System.out.println("ERROR en: " + e);
             } catch (DocumentException ex) {
-                java.util.logging.Logger.getLogger(GenerarPDF_Ventas.class.getName()).log(Level.SEVERE, null, ex);
+                java.util.logging.Logger.getLogger(GenerarPDF_Proveedores.class.getName()).log(Level.SEVERE, null, ex);
             }
             documento.close();
 
-            JOptionPane.showMessageDialog(null, "Reporte de Ventas creado");
+            JOptionPane.showMessageDialog(null, "Reporte de Proveedores creado");
         } catch (DocumentException ex) {
-            java.util.logging.Logger.getLogger(GenerarPDF_Ventas.class.getName()).log(Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GenerarPDF_Proveedores.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

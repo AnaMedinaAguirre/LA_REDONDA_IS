@@ -212,7 +212,7 @@ public class InterFrameGestionarProductos extends javax.swing.JInternalFrame {
     private void btnGenerarPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarPDFActionPerformed
         GenerarPDF_Productos reporte = new GenerarPDF_Productos();
         try {
-            reporte.GenerarPDFIncidencias();
+            reporte.GenerarPDFProductos();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(InterFrameGestionarProductos.class.getName()).log(Level.SEVERE, null, ex);
         }

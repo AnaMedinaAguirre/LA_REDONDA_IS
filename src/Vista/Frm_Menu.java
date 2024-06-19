@@ -62,7 +62,7 @@ public class Frm_Menu extends javax.swing.JFrame {
         jMenuBar1.add(jMenu7);
 
         jMenu8.setBackground(new java.awt.Color(204, 204, 255));
-        jMenu8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/employee.png"))); // NOI18N
+        jMenu8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/cliente.png"))); // NOI18N
         jMenu8.setText("Clientes");
         jMenu8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jMenu8.setPreferredSize(new java.awt.Dimension(210, 50));
@@ -117,7 +117,7 @@ public class Frm_Menu extends javax.swing.JFrame {
 
         jMenu2.setBackground(new java.awt.Color(204, 204, 255));
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/export.png"))); // NOI18N
-        jMenu2.setText("Inventario");
+        jMenu2.setText("Ventas");
         jMenu2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jMenu2.setPreferredSize(new java.awt.Dimension(210, 50));
 
